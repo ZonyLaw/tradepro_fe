@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+# Challenges
+
+Upon initialisation of project, there is 9 conflicts. 6 has been resolved by adding a  n-check package in the package.json.
+There is also a warning message about babel dependencies which will not be maintain no more.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
