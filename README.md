@@ -12,6 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - "npm install react-bootstrap bootstrap" is performed to use install the bootstrap package
 - https://react-bootstrap.github.io/docs/components/navbar
+- https://cdnjs.com/ gives you the cdnjs to fontawesome
 
 
 ## Available Scripts
