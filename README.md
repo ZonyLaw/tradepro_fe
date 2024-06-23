@@ -3,10 +3,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-# Challenges
+# Coding Notes
 
-Upon initialisation of project, there is 9 conflicts. 6 has been resolved by adding a  n-check package in the package.json.
-There is also a warning message about babel dependencies which will not be maintain no more.
+- Upon initialisation of project, there is 9 conflicts. 6 has been resolved by adding a  n-check package in the package.json.
+- There is also a warning message about babel dependencies which will not be maintain no more.
+
+## Setup
+
+- "npm install react-bootstrap bootstrap" is performed to use install the bootstrap package
+- https://react-bootstrap.github.io/docs/components/navbar
 
 
 ## Available Scripts
