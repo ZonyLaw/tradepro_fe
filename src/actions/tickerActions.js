@@ -7,7 +7,7 @@ import {
 
   } from '../constants/tickerConstants';
 
-export const listProducts = () => async (dispatch) => {
+export const listTickers = () => async (dispatch) => {
     try {
       dispatch({ type: TICKER_LIST_REQUEST });
 
