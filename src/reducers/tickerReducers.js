@@ -5,7 +5,7 @@ import {
     
   } from '../constants/tickerConstants';
   
-  export const tickerListReducer = (state = { tikcers: [] }, action) => {
+  export const tickerListReducer = (state = { tickers: [] }, action) => {
     switch (action.type) {
       case TICKER_LIST_REQUEST:
         return { loading: true, tickers: [] };

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TickerScreen from './screens/TickerScreen';
+import PriceScreen from './screens/PriceScreen';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Container>
             <Routes>
               <Route path="/market" element={<TickerScreen />} />
+              <Route path="/prices/:id" element={<PriceScreen />} />
             </Routes>
           </Container>
         </main>
