@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import {logout} from '../actions/userActions'
+import {Link} from 'react-router-dom'
 
 function Header() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -22,10 +23,10 @@ function Header() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/market">
+                <Nav.Link as={Link} to="/market">
                   <i className="fas fa-magnifying-glass-chart"></i> Market
                 </Nav.Link>
-                <Nav.Link href="/report">
+                <Nav.Link as={Link} to="/report">
                   <i className="fas fa-magnifying-glass-chart"></i> Report
                 </Nav.Link>
 
