@@ -27,7 +27,7 @@ export const login = (email, password) => async (dispatch) => {
 
         const { data } = await axios.post(
         `https://trade-pro-4909851596e5.herokuapp.com/api/users/login/`,
-        {'username': email, 'password':password },
+        {'email': email, 'password':password },
         config
         );
 
