@@ -34,7 +34,6 @@ function LoginScreen() {
         e.preventDefault();
         dispatch(login(email, password));
         console.log("Submitted")
-        console.log(userInfo)
     };
 
 
