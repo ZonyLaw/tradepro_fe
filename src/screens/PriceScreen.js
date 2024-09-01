@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux'
 import { useParams } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {listPrices} from '../actions/priceActions'
 
 function PriceScreen(tickerId) {

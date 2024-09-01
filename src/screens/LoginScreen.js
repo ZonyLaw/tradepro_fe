@@ -72,7 +72,8 @@ function LoginScreen() {
             <Row>
                 <Col>
                     New Customer? 
-                    <Link to={redirect ? '/register?redirect=${redirect}' : '/register'}>
+                    {/* <Link to={redirect ? '/register?redirect=${redirect}' : '/register'}> */}
+                    <Link to={redirect ? '/register' : '/register'}>
                         Register
                     </Link>
                 </Col>

@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import {listTickers} from '../actions/tickerActions'
 
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ function TickerScreen() {
 
 const dispatch = useDispatch();
 const tickerlist = useSelector(state => state.tickerList)
-const {error, loading, tickers} = tickerlist
+const { tickers} = tickerlist
 
 useEffect(()=>{
 
