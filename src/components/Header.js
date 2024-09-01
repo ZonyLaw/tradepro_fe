@@ -7,7 +7,7 @@ function Header() {
       <header>
         <Navbar data-bs-theme="dark"  expand="lg" className="bg-primary">
           <Container>
-            <Navbar.Brand href="tradePro">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">

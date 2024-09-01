@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import TickerScreen from './screens/TickerScreen';
 import PriceScreen from './screens/PriceScreen';
 import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <main className="py-5">
           <Container>
             <Routes>
+              <Route path="/" element={<HomeScreen />} />
               <Route path="/market" element={<TickerScreen />} />
               <Route path="/login" element={<LoginScreen />} />
               <Route path="/prices/:id" element={<PriceScreen />} />
