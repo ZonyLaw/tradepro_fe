@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import TickerScreen from './screens/TickerScreen';
 import PriceScreen from './screens/PriceScreen';
+import LoginScreen from './screens/LoginScreen';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Container>
             <Routes>
               <Route path="/market" element={<TickerScreen />} />
+              <Route path="/login" element={<LoginScreen />} />
               <Route path="/prices/:id" element={<PriceScreen />} />
             </Routes>
           </Container>
