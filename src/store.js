@@ -4,10 +4,12 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 import {tickerListReducer} from './reducers/tickerReducers'
 import {priceListReducer} from './reducers/priceReducers'
 import {userLoginReducer} from './reducers/userReducers'
+import { modelResultsReducer } from './reducers/modelReducers';
 
 
 
 const reducer = combineReducers({
+  modelResults: modelResultsReducer,
   tickerList: tickerListReducer,
   priceList: priceListReducer,
   userLogin: userLoginReducer,
