@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Production
+
+This front end webpage is launced using Netify. Any new updates in Github will automatically be deployed
 
 # Coding Notes
 

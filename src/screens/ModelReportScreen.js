@@ -20,10 +20,14 @@ function ModelReportScreen() {
   };
   
   console.log(model.cont_1h)
+  const hist_1h = model.hist_1h?.pred_historical?.[2]?.trade_results?.['Potential Trade'] || [];
+  const hist_v4 = model.hist_v4?.pred_historical?.[2]?.trade_results?.['Potential Trade'] || [];
+  const hist_v5 = model.hist_v5?.pred_historical?.[2]?.trade_results?.['Potential Trade'] || [];
+  const hist_headers = model.hist_1h?.pred_historical?.[1]?.trade_headers || [];
   const cont_1h = model.cont_1h?.pred_continue?.[2]?.trade_results?.['Potential Trade'] || [];
   const cont_v4 = model.cont_v4?.pred_continue?.[2]?.trade_results?.['Potential Trade'] || [];
   const cont_v5 = model.cont_v5?.pred_continue?.[2]?.trade_results?.['Potential Trade'] || [];
-  const headers = model.cont_1h?.pred_continue?.[1]?.trade_headers || [];
+  const cont_headers = model.cont_1h?.pred_continue?.[1]?.trade_headers || [];
 
 
   return (
@@ -39,8 +43,47 @@ function ModelReportScreen() {
       <button onClick={() => dispatch(modelResults(currencyId))}>Fetch Data</button> {/* Button to fetch data */}
       
 
+    <h1>History to Current </h1>
+
+    {loading && <p>Loading...</p>}
+    {error && <p>{error}</p>}
+    {hist_1h && hist_1h.length > 0 ? (
+      <table className="table table-striped table-bordered">
+        <thead className="thead-dark font-weight-bold">
+          <tr>
+          <th>Model</th>
+          {hist_headers ? hist_headers.map((item, index) => (
+                <th key={index} className="font-weight-bold text-center">{item}</th> // Render each trade header in a cell
+            )) : null}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td>v4</td>
+          {hist_v4 ? hist_v4.map((item, index) => (
+                <td key={index}  className="text-center">{item}</td> // Render each trade result in a cell
+              )) : null}
+          </tr>
+          <tr>
+          <td>v5</td>
+          {hist_v5 ? [...hist_v5].reverse().map((item, index) => (
+                <td key={index}  className="text-center">{item}</td> // Render each trade result in a cell
+              )) : null}
+          </tr>
+          <tr>
+          <td>1h_v5</td>
+          {hist_1h ? [...hist_1h].reverse().map((item, index) => (
+                <td key={index}  className="text-center">{item}</td> // Render each trade result in a cell
+              )) : null}
+          </tr>
+        </tbody>
+      </table>
+    ) : (
+      <p>No trades available.</p>
+    )}
 
     <h1>Continuation of a Buy</h1>
+
     {loading && <p>Loading...</p>}
     {error && <p>{error}</p>}
     {cont_1h && cont_1h.length > 0 ? (
@@ -48,7 +91,7 @@ function ModelReportScreen() {
         <thead className="thead-dark font-weight-bold">
           <tr>
           <th>Model</th>
-          {headers ? [...headers].reverse().map((item, index) => (
+          {cont_headers ? [...cont_headers].reverse().map((item, index) => (
                 <th key={index} className="font-weight-bold text-center">{item}</th> // Render each trade header in a cell
               )) : null}
           </tr>
