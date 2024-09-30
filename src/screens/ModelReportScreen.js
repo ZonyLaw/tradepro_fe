@@ -20,14 +20,14 @@ function ModelReportScreen() {
   };
   
   console.log(model.cont_1h)
-  const hist_1h = model.hist_1h?.pred_historical?.[2]?.trade_results?.['Potential Trade'] || [];
-  const hist_v4 = model.hist_v4?.pred_historical?.[2]?.trade_results?.['Potential Trade'] || [];
-  const hist_v5 = model.hist_v5?.pred_historical?.[2]?.trade_results?.['Potential Trade'] || [];
-  const hist_headers = model.hist_1h?.pred_historical?.[1]?.trade_headers || [];
-  const cont_1h = model.cont_1h?.pred_continue?.[2]?.trade_results?.['Potential Trade'] || [];
-  const cont_v4 = model.cont_v4?.pred_continue?.[2]?.trade_results?.['Potential Trade'] || [];
-  const cont_v5 = model.cont_v5?.pred_continue?.[2]?.trade_results?.['Potential Trade'] || [];
-  const cont_headers = model.cont_1h?.pred_continue?.[1]?.trade_headers || [];
+  const hist_1h = model.hist_1h?.pred_historical?.trade_results?.['Potential Trade'] || [];
+  const hist_v4 = model.hist_v4?.pred_historical?.trade_results?.['Potential Trade'] || [];
+  const hist_v5 = model.hist_v5?.pred_historical?.trade_results?.['Potential Trade'] || [];
+  const hist_headers = model.hist_1h?.pred_historical?.trade_headers || [];
+  const cont_1h = model.cont_1h?.pred_continue?.trade_results?.['Potential Trade'] || [];
+  const cont_v4 = model.cont_v4?.pred_continue?.trade_results?.['Potential Trade'] || [];
+  const cont_v5 = model.cont_v5?.pred_continue?.trade_results?.['Potential Trade'] || [];
+  const cont_headers = model.cont_1h?.pred_continue?.trade_headers || [];
 
 
   return (
