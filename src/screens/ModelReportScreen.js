@@ -19,7 +19,7 @@ function ModelReportScreen() {
     setCurrencyId(e.target.value); // Update currencyId state with user input
   };
   
-  console.log(model.cont_1h)
+
   const hist_1h = model.hist_1h?.pred_historical?.trade_results?.['Potential Trade'] || [];
   const hist_v4 = model.hist_v4?.pred_historical?.trade_results?.['Potential Trade'] || [];
   const hist_v5 = model.hist_v5?.pred_historical?.trade_results?.['Potential Trade'] || [];
@@ -28,6 +28,7 @@ function ModelReportScreen() {
   const cont_v4 = model.cont_v4?.pred_continue?.trade_results?.['Potential Trade'] || [];
   const cont_v5 = model.cont_v5?.pred_continue?.trade_results?.['Potential Trade'] || [];
   const cont_headers = model.cont_1h?.pred_continue?.trade_headers || [];
+  const key_results = model.key_results?.comments || [];
 
 
   return (
@@ -44,6 +45,7 @@ function ModelReportScreen() {
       
 
     <h1>History to Current </h1>
+    <p>{key_results.hist}</p>
 
     {loading && <p>Loading...</p>}
     {error && <p>{error}</p>}
