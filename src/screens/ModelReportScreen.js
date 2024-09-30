@@ -68,13 +68,13 @@ function ModelReportScreen() {
           </tr>
           <tr>
           <td>v5</td>
-          {hist_v5 ? [...hist_v5].reverse().map((item, index) => (
+          {hist_v5 ? hist_v5.map((item, index) => (
                 <td key={index}  className="text-center">{item}</td> // Render each trade result in a cell
               )) : null}
           </tr>
           <tr>
           <td>1h_v5</td>
-          {hist_1h ? [...hist_1h].reverse().map((item, index) => (
+          {hist_1h ? hist_1h.map((item, index) => (
                 <td key={index}  className="text-center">{item}</td> // Render each trade result in a cell
               )) : null}
           </tr>
