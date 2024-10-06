@@ -28,6 +28,10 @@ function ModelReportScreen() {
   const cont_v4 = model.cont_v4?.pred_continue?.trade_results?.['Potential Trade'] || [];
   const cont_v5 = model.cont_v5?.pred_continue?.trade_results?.['Potential Trade'] || [];
   const cont_headers = model.cont_1h?.pred_continue?.trade_headers || [];
+  const rev_1h = model.rev_1h?.pred_reverse?.trade_results?.['Potential Trade'] || [];
+  const rev_v4 = model.rev_v4?.pred_reverse?.trade_results?.['Potential Trade'] || [];
+  const rev_v5 = model.rev_v5?.pred_reverse?.trade_results?.['Potential Trade'] || [];
+  const rev_headers = model.rev_1h?.pred_reverse?.trade_headers || [];
   const key_results = model.key_results?.comments || [];
 
 
@@ -86,6 +90,8 @@ function ModelReportScreen() {
 
     <h1>Continuation of a Buy</h1>
 
+    <p>{key_results.cont}</p>
+
     {loading && <p>Loading...</p>}
     {error && <p>{error}</p>}
     {cont_1h && cont_1h.length > 0 ? (
@@ -122,6 +128,50 @@ function ModelReportScreen() {
     ) : (
       <p>No trades available.</p>
     )}
+
+
+    <h1>Continuation of a Buy</h1>
+
+<p>{key_results.rev}</p>
+
+{loading && <p>Loading...</p>}
+{error && <p>{error}</p>}
+{rev_1h && rev_1h.length > 0 ? (
+  <table className="table table-striped table-bordered">
+    <thead className="thead-dark font-weight-bold">
+      <tr>
+      <th>Model</th>
+      {rev_headers ? [...rev_headers].reverse().map((item, index) => (
+            <th key={index} className="font-weight-bold text-center">{item}</th> // Render each trade header in a cell
+          )) : null}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td>v4</td>
+      {rev_v4 ? [...rev_v4].reverse().map((item, index) => (
+            <td key={index}  className="text-center">{item}</td> // Render each trade result in a cell
+          )) : null}
+      </tr>
+      <tr>
+      <td>v5</td>
+      {rev_v5 ? [...rev_v5].reverse().map((item, index) => (
+            <td key={index}  className="text-center">{item}</td> // Render each trade result in a cell
+          )) : null}
+      </tr>
+      <tr>
+      <td>1h_v5</td>
+      {rev_1h ? [...rev_1h].reverse().map((item, index) => (
+            <td key={index}  className="text-center">{item}</td> // Render each trade result in a cell
+          )) : null}
+      </tr>
+    </tbody>
+  </table>
+) : (
+  <p>No trades available.</p>
+)}
+
+
   </div>
   );
 }
