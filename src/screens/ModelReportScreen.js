@@ -50,6 +50,44 @@ function ModelReportScreen() {
 
   return (
     <div>
+
+      <div className="container container--narrow">
+          <div className="price-notifications">
+            <div className="price-notification">
+              <span className="label">Date:</span>
+              <span className="value">date</span>
+            </div>
+            <div className="price-notification">
+              <span className="label">Open Price:</span>
+              <span className="value">£{parseFloat(key_results?.current_market?.open_prices[3]).toFixed(2)}</span>
+            </div>
+            <div className="price-notification">
+              <span className="label">Current Price:</span>
+              <span className="value">£{parseFloat(key_results?.current_market?.close_prices[3]).toFixed(2)}</span>
+            </div>
+            <div className="price-notification">
+              <span className="label">Estimated Volume:</span>
+              <span className="value">{parseFloat(key_results?.current_market?.projected_volume).toFixed(0)}</span>
+            </div>
+
+            {/* {volume && secondVolume > 3000 && (
+              <div className="price-notification">
+                <div className="flash-container-orange">
+                  <div className="flash-box-orange">
+                    <span className="label">Previous Volume:</span>
+                    <span>{secondVolume}</span>
+                  </div>
+                </div>
+              </div>
+            )} */}
+          </div>
+      </div>
+
+
+
+
+
+
       <h1>Model Report</h1>
       <input
         type="text"
@@ -65,8 +103,8 @@ function ModelReportScreen() {
 
 
       <h1>Trade Opportunity </h1>
-      <table className="table table-bordered">
-        <tbody >
+      <table className="table-bordered-custom" >
+        <tbody  >
           <tr className="purple-row">
             <td>Trade direction:</td>
             <td>

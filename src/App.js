@@ -15,7 +15,7 @@ function App() {
     <div>
       <Router>
         <Header />
-        <main className="py-5">
+        <main >
           <Container>
             <Routes>
               <Route path="/" element={<HomeScreen />} />
