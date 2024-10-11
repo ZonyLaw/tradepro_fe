@@ -1,0 +1,25 @@
+.purple-row td {
+    color: purple;
+  }
+  
+  .red-row td {
+    color: red;
+  }
+  
+  .blue-row td {
+    color: blue;
+  }
+  
+  .green-row td {
+    color: green;
+  }
+  
+  .orange-row td {
+    color: orange;
+  }
+  
+  .pink-row td {
+    color: #e75480;
+    background-color: #d3d3d3;
+  }
+  
