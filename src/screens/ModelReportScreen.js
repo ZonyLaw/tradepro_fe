@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { modelResults } from '../actions/modelActions'; // Assuming this is your action creator
+import { useFlashClass } from '../components/useFlashClass'; 
 
 function ModelReportScreen() {
   const [currencyId, setCurrencyId] = useState('USDJPY');
@@ -32,8 +33,12 @@ function ModelReportScreen() {
   const rev_v4 = model.rev_v4?.pred_reverse?.trade_results?.['Potential Trade'] || [];
   const rev_v5 = model.rev_v5?.pred_reverse?.trade_results?.['Potential Trade'] || [];
   const rev_headers = model.rev_1h?.pred_reverse?.trade_headers || [];
-  const key_results = model.key_results?.comments || [];
+  const comments = model.key_results?.comments || [];
+  const potential_trade = model.key_results?.potential_trade || [];
 
+  const histflashClass = useFlashClass(potential_trade?.hist);
+  const contflashClass = useFlashClass(potential_trade?.cont);
+  const revflashClass = useFlashClass(potential_trade?.rev);
 
   return (
     <div>
@@ -49,7 +54,10 @@ function ModelReportScreen() {
       
 
     <h1>History to Current </h1>
-    <p>{key_results.hist}</p>
+        {/* Flashing text for comments.hist */}
+    <p className={`comment ${histflashClass}`}>
+      {comments.hist}
+  </p>
 
     {loading && <p>Loading...</p>}
     {error && <p>{error}</p>}
@@ -90,7 +98,9 @@ function ModelReportScreen() {
 
     <h1>Continuation of a Buy</h1>
 
-    <p>{key_results.cont}</p>
+    <p className={`comment ${contflashClass}`}>
+      {comments.cont}
+  </p>
 
     {loading && <p>Loading...</p>}
     {error && <p>{error}</p>}
@@ -132,7 +142,9 @@ function ModelReportScreen() {
 
     <h1>Continuation of a Buy</h1>
 
-<p>{key_results.rev}</p>
+    <p className={`comment ${revflashClass}`}>
+      {comments.rev}
+  </p>
 
 {loading && <p>Loading...</p>}
 {error && <p>{error}</p>}

@@ -1,0 +1,44 @@
+/* Flashing background for 'Sell' */
+.flash-background-red {
+  animation: flashRed 3s infinite;
+}
+
+/* Flashing background for 'Buy' */
+.flash-background-green {
+  animation: flashGreen 3s infinite;
+}
+
+/* Flash animation keyframes for Red */
+@keyframes flashRed {
+  0% {
+    background-color: #ff0000; /* Red */
+  }
+  70% {
+    background-color: #f2a3a9; 
+  }
+  100% {
+    background-color: #ff0000; /* Red */
+  }
+}
+
+/* Flash animation keyframes for Green */
+@keyframes flashGreen {
+  0% {
+    background-color: #029402; /* Green */
+  }
+  70% {
+    background-color: #b6f1a6; 
+  }
+  100% {
+    background-color: #029402; /* Green */
+  }
+}
+
+/* White text in comments */
+.comment {
+  color: white;
+  font-size: 30px;  /* Change this to the desired font size */
+  font-weight: bold;
+  text-align: center;
+
+}
