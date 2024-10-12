@@ -69,3 +69,12 @@
     margin-top: 5px;
   }
   
+
+
+.text-negative {
+  color: red;
+}
+
+.text-positive {
+  color: green;
+}

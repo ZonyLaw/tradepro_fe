@@ -252,9 +252,11 @@ function ModelReportScreen() {
             <tr>
               <td>v4 Profit / Loss</td>
               {key_results?.hist_trade_outcome?.v4_pl
-                ? key_results?.hist_trade_outcome?.v4_pl.map((item, index) => (
+                ? key_results.hist_trade_outcome.v4_pl.map((item, index) => (
                     <td key={index} className="text-center">
-                      {item}
+                      <span className={item < 0 ? 'text-negative' : 'text-positive'}>
+                        {item}
+                      </span>
                     </td> // Render each trade result in a cell
                   ))
                 : null}
@@ -262,13 +264,36 @@ function ModelReportScreen() {
             <tr>
               <td>v5 Profit / Loss</td>
               {key_results?.hist_trade_outcome?.v5_pl
-                ? key_results?.hist_trade_outcome?.v5_pl.map((item, index) => (
+                ? key_results.hist_trade_outcome.v5_pl.map((item, index) => (
                     <td key={index} className="text-center">
-                      {item}
+                      <span className={item < 0 ? 'text-negative' : 'text-positive'}>
+                        {item}
+                      </span>
                     </td> // Render each trade result in a cell
                   ))
                 : null}
             </tr>
+            <tr>
+              <td>Open Price</td>
+              {key_results?.current_market?.open_prices
+                ? key_results?.current_market?.open_prices.map((item, index) => (
+                    <td key={index} className="text-center">
+                      {parseFloat(item).toFixed(2)}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>Close Price</td>
+              {key_results?.current_market?.close_prices
+                ? key_results?.current_market?.close_prices.map((item, index) => (
+                    <td key={index} className="text-center">
+                      {parseFloat(item).toFixed(2)}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+
           </tbody>
         </table>
       ) : (
