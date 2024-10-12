@@ -15,7 +15,7 @@ function Header() {
   };
 
   return (
-    <div>
+    <div className='sticky-top'>
       <header>
         <Navbar data-bs-theme="dark" expand="lg" className="bg-primary">
           <Container>

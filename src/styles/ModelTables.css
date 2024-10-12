@@ -46,7 +46,7 @@
 
 .price-notifications {
     position: sticky;
-    top: 85px;
+    top: 71px;
     z-index: 99;
     display: flex;
     justify-content: space-around; 

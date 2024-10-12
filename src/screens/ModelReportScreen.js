@@ -57,7 +57,7 @@ function ModelReportScreen() {
   return (
     <div>
 
-      <div className="container container--narrow">
+   
           <div className="price-notifications">
             <div className="price-notification">
               <span className="label">Date:</span>
@@ -87,7 +87,7 @@ function ModelReportScreen() {
               </div>
             )} */}
           </div>
-      </div>
+
 
 
 
@@ -110,7 +110,7 @@ function ModelReportScreen() {
 
       <h1>Trade Opportunity </h1>
       <p style={{ fontSize: '20px', color: 'Red', fontWeight: 'bold' }}>
-      Last update: {formatted_date}
+      Last update: {formatted_date} UTC
       </p>
 
 
@@ -233,6 +233,36 @@ function ModelReportScreen() {
               <td>1h_v5</td>
               {hist_1h
                 ? hist_1h.map((item, index) => (
+                    <td key={index} className="text-center">
+                      {item}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>Volume</td>
+              {key_results?.current_market?.volume
+                ? key_results?.current_market?.volume.map((item, index) => (
+                    <td key={index} className="text-center">
+                      {item}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>v4 Profit / Loss</td>
+              {key_results?.hist_trade_outcome?.v4_pl
+                ? key_results?.hist_trade_outcome?.v4_pl.map((item, index) => (
+                    <td key={index} className="text-center">
+                      {item}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>v5 Profit / Loss</td>
+              {key_results?.hist_trade_outcome?.v5_pl
+                ? key_results?.hist_trade_outcome?.v5_pl.map((item, index) => (
                     <td key={index} className="text-center">
                       {item}
                     </td> // Render each trade result in a cell
