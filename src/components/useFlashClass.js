@@ -14,16 +14,7 @@ export function useFlashClass(trade) {
       setFlashClass('');
     }
 
-    if (flashClass) {
-      const intervalId = setInterval(() => {
-        setFlashClass((prevClass) =>
-          prevClass === '' ? (trade === 'Sell' ? 'flash-background-red' : 'flash-background-green') : ''
-        );
-      }, 500); // Flash every 500ms
-
-      return () => clearInterval(intervalId); // Cleanup interval on unmount
-    }
-  }, [trade, flashClass]);
+  }, [trade]);
 
   return flashClass;
 }

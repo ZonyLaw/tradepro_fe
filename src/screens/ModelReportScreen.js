@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { modelResults } from '../actions/modelActions'; // Assuming this is your action creator
 import { useFlashClass } from '../components/useFlashClass';
+import { FormatDate } from '../components/FormatDate';
 import '../styles/ModelTables.css';
 
 function ModelReportScreen() {
@@ -19,6 +20,11 @@ function ModelReportScreen() {
   const handleInputChange = (e) => {
     setCurrencyId(e.target.value); // Update currencyId state with user input
   };
+
+
+  const model_date = model.hist_1h?.pred_historical?.['date']
+  const formatted_date = FormatDate(model_date)
+
 
   const hist_1h =
     model.hist_1h?.pred_historical?.trade_results?.['Potential Trade'] || [];
@@ -103,6 +109,11 @@ function ModelReportScreen() {
 
 
       <h1>Trade Opportunity </h1>
+      <p style={{ fontSize: '20px', color: 'Red', fontWeight: 'bold' }}>
+      Last update: {formatted_date}
+      </p>
+
+
       <table className="table-bordered-custom" >
         <tbody  >
           <tr className="purple-row">
