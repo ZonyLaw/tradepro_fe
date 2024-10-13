@@ -62,7 +62,7 @@ function ModelReportScreen() {
           <div className="price-notifications">
             <div className="price-notification">
               <span className="label">Date:</span>
-              <span className="value">date</span>
+              <span className="value">{formatted_date} UTC</span>
             </div>
             <div className="price-notification">
               <span className="label">Open Price:</span>
@@ -322,7 +322,7 @@ function ModelReportScreen() {
       ) : (
         <p>No trades available.</p>
       )}
-      <h1>Continuation of a Buy</h1>
+      <h1>Continuation of a {key_results?.potential_trade?.hist}</h1>
       <p className={`comment ${contflashClass}`}>{comments.cont}</p>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
@@ -376,7 +376,7 @@ function ModelReportScreen() {
       ) : (
         <p>No trades available.</p>
       )}
-      <h1>Continuation of a Buy</h1>
+      <h1>Reverse of a {key_results?.potential_trade?.hist} </h1>
       <p className={`comment ${revflashClass}`}>{comments.rev}</p>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
