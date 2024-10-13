@@ -91,10 +91,6 @@ function ModelReportScreen() {
 
 
 
-
-
-
-
       <h1>Model Report</h1>
       <input
         type="text"
@@ -301,7 +297,7 @@ function ModelReportScreen() {
               {key_results?.current_market?.open_prices
                 ? key_results?.current_market?.open_prices.map((item, index) => (
                     <td key={index} className="text-center">
-                      {parseFloat(item).toFixed(2)}
+                     £ {parseFloat(item).toFixed(2)}
                     </td> // Render each trade result in a cell
                   ))
                 : null}
@@ -311,7 +307,7 @@ function ModelReportScreen() {
               {key_results?.current_market?.close_prices
                 ? key_results?.current_market?.close_prices.map((item, index) => (
                     <td key={index} className="text-center">
-                      {parseFloat(item).toFixed(2)}
+                     £ {parseFloat(item).toFixed(2)}
                     </td> // Render each trade result in a cell
                   ))
                 : null}
@@ -430,6 +426,53 @@ function ModelReportScreen() {
       ) : (
         <p>No trades available.</p>
       )}
+
+
+      <h1>Reversal Model Indication </h1>
+      <p className={`comment ${revflashClass}`}>{comments.rev}</p>
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {rev_1h && rev_1h.length > 0 ? (
+        <table className="table table-striped table-bordered">
+          <thead className="thead-dark font-weight-bold">
+            <tr>
+              <th>Item</th>
+              {rev_headers
+                ? [...hist_headers].map((item, index) => (
+                    <th key={index} className="font-weight-bold text-center">
+                      {item}
+                    </th> // Render each trade header in a cell
+                  ))
+                : null}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Confirmation of Direction</td>
+              {key_results?.reversal_model?.reverse_pred
+                ? [...key_results?.reversal_model?.reverse_pred].map((item, index) => (
+                    <td key={index} className="text-center">
+                      {item}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>Accuracy</td>
+              {key_results?.reversal_model?.reverse_prob
+                ? [...key_results?.reversal_model?.reverse_prob].map((item, index) => (
+                    <td key={index} className="text-center">
+                      {parseFloat(item).toFixed(2)} %
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+          </tbody>
+        </table>
+      ) : (
+        <p>No trades available.</p>
+      )}
+
     </div>
   );
 }
