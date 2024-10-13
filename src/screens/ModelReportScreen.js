@@ -111,14 +111,24 @@ function ModelReportScreen() {
     
       <div>
           <h2>Model Information</h2>
-          <p>The model predicts new trades at the start of each hour. While currency movements can be volatile, you may find opportunities to enter the recommended entry point during this timeframe.</p>
-          <p>This tool is designed to validate your observations and indicate optimal times to focus on a trade.</p>
-          
+          <div className='border border-dark p-3'>
+
+            <p>The model predicts new trades at the start of each hour. While currency movements can be volatile, you may find opportunities to enter the recommended entry point during this timeframe.</p>
+            <p>This tool is designed to validate your observations and indicate optimal times to focus on a trade.</p>
+            
+
+          </div>
+
           <h2>Extra Market Information</h2>
+          <div className='border border-dark p-3'>
           {<Next4hrCandlestickTime />}
               <p><big>Current 1 hr Candle Stick size: {parseFloat(key_results?.current_market?.candle_size_1hr).toFixed(2)}, direction: <b> {key_results?.current_market?.trade_1hr} </b> </big></p>
               <p><big>Current 4 hr Candle Stick size: {parseFloat(key_results?.current_market?.candle_size_4hr).toFixed(2)}, direction: <b> {key_results?.current_market?.trade_4hr} </b> </big></p>
               <p>Last open price 4 hrs ago: £{parseFloat(key_results?.current_market?.open_prices_4hr).toFixed(2)} </p>
+              <p>{key_results?.current_market?.candlestick_comment}</p>
+
+          </div>    
+
       </div>
 
       <h1>Trade Opportunity </h1>
