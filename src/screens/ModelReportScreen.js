@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { modelResults } from '../actions/modelActions'; // Assuming this is your action creator
-import { useFlashClass } from '../components/useFlashClass';
+import { useFlashClass } from '../hooks/useFlashClass';
 import { FormatDate } from '../components/FormatDate';
+import useBuyOrSell from '../hooks/useBuyOrSell';
 import { Next4hrCandlestickTime } from '../components/Next4hrCandlestickTime';
 import '../styles/FormatReport.css';
 
@@ -54,6 +55,8 @@ function ModelReportScreen() {
   const histflashClass = useFlashClass(key_results?.potential_trade?.hist);
   const contflashClass = useFlashClass(key_results?.potential_trade?.cont);
   const revflashClass = useFlashClass(key_results?.potential_trade?.rev);
+
+  const last_4_trades = useBuyOrSell(key_results?.current_market?.open_prices,key_results?.current_market?.close_prices)
 
   return (
     <div>
@@ -429,7 +432,7 @@ function ModelReportScreen() {
 
 
       <h1>Reversal Model Indication </h1>
-      <p className={`comment ${revflashClass}`}>{comments.rev}</p>
+
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {rev_1h && rev_1h.length > 0 ? (
@@ -447,6 +450,16 @@ function ModelReportScreen() {
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td>Trade</td>
+              {last_4_trades
+                ? [...last_4_trades].map((item, index) => (
+                    <td key={index} className="text-center">
+                      {item}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
             <tr>
               <td>Confirmation of Direction</td>
               {key_results?.reversal_model?.reverse_pred
