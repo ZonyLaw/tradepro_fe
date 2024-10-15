@@ -51,12 +51,15 @@ function ModelReportScreen() {
   const rev_headers = model.rev_1h?.pred_reverse?.trade_headers || [];
   const comments = model.key_results?.comments || [];
   const key_results = model.key_results || [];
+  const sensitivityModel = key_results?.sensitivity_hist_model || [];
 
   const histflashClass = useFlashClass(key_results?.potential_trade?.hist);
   const contflashClass = useFlashClass(key_results?.potential_trade?.cont);
   const revflashClass = useFlashClass(key_results?.potential_trade?.rev);
 
   const last_4_trades = useBuyOrSell(key_results?.current_market?.open_prices,key_results?.current_market?.close_prices)
+
+  console.log("sensitivity_hist_model:", key_results?.sensitivity_hist_model?.["10pips"]);
 
   return (
     <div>
@@ -321,6 +324,102 @@ function ModelReportScreen() {
       ) : (
         <p>No trades available.</p>
       )}
+
+ 
+      <h1>Sensitivity Test</h1>
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+
+      {/* Check if sensitivity_model exists and has keys */}
+      {sensitivityModel && Object.keys(sensitivityModel).length > 0 ? (
+        <table className="table table-striped table-bordered">
+          <thead className="thead-dark font-weight-bold">
+            <tr>
+              <th className="text-center">Movement</th>
+              <th className="text-center">Prediction</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Hardcoded rows for 10pips and -10pips */}
+            <tr className="green-row" key="10pips">
+              <td className="text-center">10pips</td>
+              <td className="text-center">
+                {sensitivityModel?.['10pips']?.prediction ?? "No Prediction Available"}
+              </td>
+            </tr>
+            <tr className="red-row" key="-10pips">
+              <td className="text-center">-10pips</td>
+              <td className="text-center green-row">
+                {sensitivityModel?.['-10pips']?.prediction ?? "No Prediction Available"}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      ) : (
+        !loading && <p>No results available.</p>
+      )}
+
+
+
+
+
+      <h1>Reverse of a {key_results?.potential_trade?.hist} </h1>
+      <p className={`comment ${revflashClass}`}>{comments.rev}</p>
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {rev_1h && rev_1h.length > 0 ? (
+        <table className="table table-striped table-bordered">
+          <thead className="thead-dark font-weight-bold">
+            <tr>
+              <th>Model</th>
+              {rev_headers
+                ? [...rev_headers].reverse().map((item, index) => (
+                    <th key={index} className="font-weight-bold text-center">
+                      {item}
+                    </th> // Render each trade header in a cell
+                  ))
+                : null}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>v4</td>
+              {rev_v4
+                ? [...rev_v4].reverse().map((item, index) => (
+                    <td key={index} className="text-center">
+                      {item}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>v5</td>
+              {rev_v5
+                ? [...rev_v5].reverse().map((item, index) => (
+                    <td key={index} className="text-center">
+                      {item}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>1h_v5</td>
+              {rev_1h
+                ? [...rev_1h].reverse().map((item, index) => (
+                    <td key={index} className="text-center">
+                      {item}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+          </tbody>
+        </table>
+      ) : (
+        <p>No trades available.</p>
+      )}
+
+
+
       <h1>Continuation of a {key_results?.potential_trade?.hist}</h1>
       <p className={`comment ${contflashClass}`}>{comments.cont}</p>
       {loading && <p>Loading...</p>}
