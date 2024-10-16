@@ -318,6 +318,16 @@ function ModelReportScreen() {
                   ))
                 : null}
             </tr>
+            <tr>
+              <td>Upper Volatility</td>
+              {key_results?.flatness?.hist
+                ? key_results?.flatness?.hist.map((item, index) => (
+                    <td key={index} className="text-center">
+                      {parseFloat(item).toFixed(2)}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
 
           </tbody>
         </table>
@@ -419,7 +429,6 @@ function ModelReportScreen() {
       )}
 
 
-
       <h1>Continuation of a {key_results?.potential_trade?.hist}</h1>
       <p className={`comment ${contflashClass}`}>{comments.cont}</p>
       {loading && <p>Loading...</p>}
@@ -474,61 +483,7 @@ function ModelReportScreen() {
       ) : (
         <p>No trades available.</p>
       )}
-      <h1>Reverse of a {key_results?.potential_trade?.hist} </h1>
-      <p className={`comment ${revflashClass}`}>{comments.rev}</p>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {rev_1h && rev_1h.length > 0 ? (
-        <table className="table table-striped table-bordered">
-          <thead className="thead-dark font-weight-bold">
-            <tr>
-              <th>Model</th>
-              {rev_headers
-                ? [...rev_headers].reverse().map((item, index) => (
-                    <th key={index} className="font-weight-bold text-center">
-                      {item}
-                    </th> // Render each trade header in a cell
-                  ))
-                : null}
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>v4</td>
-              {rev_v4
-                ? [...rev_v4].reverse().map((item, index) => (
-                    <td key={index} className="text-center">
-                      {item}
-                    </td> // Render each trade result in a cell
-                  ))
-                : null}
-            </tr>
-            <tr>
-              <td>v5</td>
-              {rev_v5
-                ? [...rev_v5].reverse().map((item, index) => (
-                    <td key={index} className="text-center">
-                      {item}
-                    </td> // Render each trade result in a cell
-                  ))
-                : null}
-            </tr>
-            <tr>
-              <td>1h_v5</td>
-              {rev_1h
-                ? [...rev_1h].reverse().map((item, index) => (
-                    <td key={index} className="text-center">
-                      {item}
-                    </td> // Render each trade result in a cell
-                  ))
-                : null}
-            </tr>
-          </tbody>
-        </table>
-      ) : (
-        <p>No trades available.</p>
-      )}
-
+     
 
       <h1>Reversal Model Indication </h1>
 
@@ -560,7 +515,7 @@ function ModelReportScreen() {
                 : null}
             </tr>
             <tr>
-              <td>Confirmation of Direction</td>
+              <td>Direction</td>
               {key_results?.reversal_model?.reverse_pred
                 ? [...key_results?.reversal_model?.reverse_pred].map((item, index) => (
                     <td key={index} className="text-center">
