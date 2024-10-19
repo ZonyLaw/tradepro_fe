@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { modelResults } from '../actions/modelActions'; // Assuming this is your action creator
-import { useFlashClass } from '../hooks/useFlashClass';
+import { useCommentFlashClass } from '../hooks/useFlashClass';
 import { FormatDate } from '../components/FormatDate';
 import useBuyOrSell from '../hooks/useBuyOrSell';
 import { Next4hrCandlestickTime } from '../components/Next4hrCandlestickTime';
@@ -53,9 +53,9 @@ function ModelReportScreen() {
   const key_results = model.key_results || [];
   const sensitivityModel = key_results?.sensitivity_hist_model || [];
 
-  const histflashClass = useFlashClass(key_results?.potential_trade?.hist);
-  const contflashClass = useFlashClass(key_results?.potential_trade?.cont);
-  const revflashClass = useFlashClass(key_results?.potential_trade?.rev);
+  const histflashClass = useCommentFlashClass(key_results?.potential_trade?.hist, comments?.hist);
+  const contflashClass = useCommentFlashClass(key_results?.potential_trade?.cont,  comments?.cont);
+  const revflashClass = useCommentFlashClass(key_results?.potential_trade?.rev,  comments?.rev);
 
   const last_4_trades = useBuyOrSell(key_results?.current_market?.open_prices,key_results?.current_market?.close_prices)
 
@@ -138,6 +138,7 @@ function ModelReportScreen() {
       Last update: {formatted_date} UTC
       </p>
 
+      <p className={`comment ${histflashClass}`}>{comments.hist}</p>
 
       <table className="table-bordered-custom" >
         <tbody  >
@@ -214,9 +215,43 @@ function ModelReportScreen() {
         </tbody>
       </table>
 
+
+      <h1>Sensitivity Test</h1>
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+
+      {/* Check if sensitivity_model exists and has keys */}
+      {sensitivityModel && Object.keys(sensitivityModel).length > 0 ? (
+        <table className="table table-striped table-bordered">
+          <thead className="thead-dark font-weight-bold">
+            <tr>
+              <th className="text-center">Movement</th>
+              <th className="text-center">Prediction</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Hardcoded rows for 10pips and -10pips */}
+            <tr className="green-row" key="10pips">
+              <td className="text-center">10pips</td>
+              <td className="text-center">
+                {sensitivityModel?.['10pips']?.prediction ?? "No Prediction Available"}
+              </td>
+            </tr>
+            <tr className="red-row" key="-10pips">
+              <td className="text-center">-10pips</td>
+              <td className="text-center">
+                {sensitivityModel?.['-10pips']?.prediction ?? "No Prediction Available"}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      ) : (
+        !loading && <p>No results available.</p>
+      )}
+
       <h1>History to Current </h1>
       {/* Flashing text for comments.hist */}
-      <p className={`comment ${histflashClass}`}>{comments.hist}</p>
+   
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {hist_1h && hist_1h.length > 0 ? (
@@ -265,11 +300,21 @@ function ModelReportScreen() {
                 : null}
             </tr>
             <tr>
-              <td>Volume</td>
-              {key_results?.current_market?.volume
-                ? key_results?.current_market?.volume.map((item, index) => (
+              <td>Open Price</td>
+              {key_results?.current_market?.open_prices
+                ? key_results?.current_market?.open_prices.map((item, index) => (
                     <td key={index} className="text-center">
-                      {item}
+                     £ {parseFloat(item).toFixed(2)}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>Close Price</td>
+              {key_results?.current_market?.close_prices
+                ? key_results?.current_market?.close_prices.map((item, index) => (
+                    <td key={index} className="text-center">
+                     £ {parseFloat(item).toFixed(2)}
                     </td> // Render each trade result in a cell
                   ))
                 : null}
@@ -299,21 +344,11 @@ function ModelReportScreen() {
                 : null}
             </tr>
             <tr>
-              <td>Open Price</td>
-              {key_results?.current_market?.open_prices
-                ? key_results?.current_market?.open_prices.map((item, index) => (
+              <td>Volume</td>
+              {key_results?.current_market?.volume
+                ? key_results?.current_market?.volume.map((item, index) => (
                     <td key={index} className="text-center">
-                     £ {parseFloat(item).toFixed(2)}
-                    </td> // Render each trade result in a cell
-                  ))
-                : null}
-            </tr>
-            <tr>
-              <td>Close Price</td>
-              {key_results?.current_market?.close_prices
-                ? key_results?.current_market?.close_prices.map((item, index) => (
-                    <td key={index} className="text-center">
-                     £ {parseFloat(item).toFixed(2)}
+                      {item}
                     </td> // Render each trade result in a cell
                   ))
                 : null}
@@ -336,54 +371,20 @@ function ModelReportScreen() {
       )}
 
  
-      <h1>Sensitivity Test</h1>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-
-      {/* Check if sensitivity_model exists and has keys */}
-      {sensitivityModel && Object.keys(sensitivityModel).length > 0 ? (
-        <table className="table table-striped table-bordered">
-          <thead className="thead-dark font-weight-bold">
-            <tr>
-              <th className="text-center">Movement</th>
-              <th className="text-center">Prediction</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* Hardcoded rows for 10pips and -10pips */}
-            <tr className="green-row" key="10pips">
-              <td className="text-center">10pips</td>
-              <td className="text-center">
-                {sensitivityModel?.['10pips']?.prediction ?? "No Prediction Available"}
-              </td>
-            </tr>
-            <tr className="red-row" key="-10pips">
-              <td className="text-center">-10pips</td>
-              <td className="text-center green-row">
-                {sensitivityModel?.['-10pips']?.prediction ?? "No Prediction Available"}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      ) : (
-        !loading && <p>No results available.</p>
-      )}
+     
 
 
+      <h1>Reversal Model Indication </h1>
 
-
-
-      <h1>Reverse of a {key_results?.potential_trade?.hist} </h1>
-      <p className={`comment ${revflashClass}`}>{comments.rev}</p>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {rev_1h && rev_1h.length > 0 ? (
         <table className="table table-striped table-bordered">
           <thead className="thead-dark font-weight-bold">
             <tr>
-              <th>Model</th>
+              <th>Item</th>
               {rev_headers
-                ? [...rev_headers].reverse().map((item, index) => (
+                ? [...hist_headers].map((item, index) => (
                     <th key={index} className="font-weight-bold text-center">
                       {item}
                     </th> // Render each trade header in a cell
@@ -393,9 +394,9 @@ function ModelReportScreen() {
           </thead>
           <tbody>
             <tr>
-              <td>v4</td>
-              {rev_v4
-                ? [...rev_v4].reverse().map((item, index) => (
+              <td>Trade</td>
+              {last_4_trades
+                ? [...last_4_trades].map((item, index) => (
                     <td key={index} className="text-center">
                       {item}
                     </td> // Render each trade result in a cell
@@ -403,9 +404,9 @@ function ModelReportScreen() {
                 : null}
             </tr>
             <tr>
-              <td>v5</td>
-              {rev_v5
-                ? [...rev_v5].reverse().map((item, index) => (
+              <td>Direction</td>
+              {key_results?.reversal_model?.reverse_pred
+                ? [...key_results?.reversal_model?.reverse_pred].map((item, index) => (
                     <td key={index} className="text-center">
                       {item}
                     </td> // Render each trade result in a cell
@@ -413,11 +414,11 @@ function ModelReportScreen() {
                 : null}
             </tr>
             <tr>
-              <td>1h_v5</td>
-              {rev_1h
-                ? [...rev_1h].reverse().map((item, index) => (
+              <td>Accuracy</td>
+              {key_results?.reversal_model?.reverse_prob
+                ? [...key_results?.reversal_model?.reverse_prob].map((item, index) => (
                     <td key={index} className="text-center">
-                      {item}
+                      {parseFloat(item).toFixed(2)} %
                     </td> // Render each trade result in a cell
                   ))
                 : null}
@@ -427,8 +428,7 @@ function ModelReportScreen() {
       ) : (
         <p>No trades available.</p>
       )}
-
-
+     
       <h1>Continuation of a {key_results?.potential_trade?.hist}</h1>
       <p className={`comment ${contflashClass}`}>{comments.cont}</p>
       {loading && <p>Loading...</p>}
@@ -485,17 +485,17 @@ function ModelReportScreen() {
       )}
      
 
-      <h1>Reversal Model Indication </h1>
-
+      <h1>Reverse of a {key_results?.potential_trade?.hist} </h1>
+      <p className={`comment ${revflashClass}`}>{comments.rev}</p>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {rev_1h && rev_1h.length > 0 ? (
         <table className="table table-striped table-bordered">
           <thead className="thead-dark font-weight-bold">
             <tr>
-              <th>Item</th>
+              <th>Model</th>
               {rev_headers
-                ? [...hist_headers].map((item, index) => (
+                ? [...rev_headers].reverse().map((item, index) => (
                     <th key={index} className="font-weight-bold text-center">
                       {item}
                     </th> // Render each trade header in a cell
@@ -505,9 +505,9 @@ function ModelReportScreen() {
           </thead>
           <tbody>
             <tr>
-              <td>Trade</td>
-              {last_4_trades
-                ? [...last_4_trades].map((item, index) => (
+              <td>v4</td>
+              {rev_v4
+                ? [...rev_v4].reverse().map((item, index) => (
                     <td key={index} className="text-center">
                       {item}
                     </td> // Render each trade result in a cell
@@ -515,9 +515,9 @@ function ModelReportScreen() {
                 : null}
             </tr>
             <tr>
-              <td>Direction</td>
-              {key_results?.reversal_model?.reverse_pred
-                ? [...key_results?.reversal_model?.reverse_pred].map((item, index) => (
+              <td>v5</td>
+              {rev_v5
+                ? [...rev_v5].reverse().map((item, index) => (
                     <td key={index} className="text-center">
                       {item}
                     </td> // Render each trade result in a cell
@@ -525,11 +525,11 @@ function ModelReportScreen() {
                 : null}
             </tr>
             <tr>
-              <td>Accuracy</td>
-              {key_results?.reversal_model?.reverse_prob
-                ? [...key_results?.reversal_model?.reverse_prob].map((item, index) => (
+              <td>1h_v5</td>
+              {rev_1h
+                ? [...rev_1h].reverse().map((item, index) => (
                     <td key={index} className="text-center">
-                      {parseFloat(item).toFixed(2)} %
+                      {item}
                     </td> // Render each trade result in a cell
                   ))
                 : null}
@@ -539,6 +539,8 @@ function ModelReportScreen() {
       ) : (
         <p>No trades available.</p>
       )}
+
+   
 
     </div>
   );

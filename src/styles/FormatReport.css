@@ -3,34 +3,34 @@
 ========================*/
 
 .purple-row td {
-    color: purple;
+    color: purple !important;
   }
   
-  .red-row td {
-    color: red;
-  }
-  
-  .blue-row td {
-    color: blue;
-  }
-  
-  .green-row td {
-    color: green;
-  }
-  
-  .orange-row td {
-    color: orange;
-  }
-  
-  .pink-row td {
-    color: #e75480;
-    background-color: #d3d3d3;
-  }
+.red-row td {
+  color: red !important;
+}
 
-  .table-bordered-custom {
-    width: 100%;
-    border: 1px solid rgb(150, 150, 150); /* Adjust thickness and color as needed */
-    border-collapse: collapse; /* Ensures borders don't overlap */
+.blue-row td {
+  color: blue !important;
+}
+
+.green-row td {
+  color: green !important;
+}
+
+.orange-row td {
+  color: orange !important;
+}
+
+.pink-row td {
+  color: #e75480 ;
+  background-color: #d3d3d3;
+}
+
+.table-bordered-custom {
+  width: 100%;
+  border: 1px solid rgb(150, 150, 150); /* Adjust thickness and color as needed */
+  border-collapse: collapse; /* Ensures borders don't overlap */
 }
 
 .table-bordered-custom td, .table-bordered-custom th {
@@ -55,19 +55,19 @@
     padding: 20px;
   }
   
-  .price-notification {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .label {
-    font-weight: bold;
-  }
-  
-  .value {
-    margin-top: 5px;
-  }
+.price-notification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.value {
+  margin-top: 5px;
+}
   
 
 .text-negative {
