@@ -26,7 +26,7 @@ export function useCommentFlashClass(trade, comment) {
 
   useEffect(() => {
 
-    if (comment?.includes('weak') || comment?.includes('retrace')) {
+    if (comment?.includes('weak') || comment?.includes('retrace') || comment?.includes('WARNING')) {
       setFlashClass('flash-background-blue');
     }
     else if (trade === 'Sell') {
