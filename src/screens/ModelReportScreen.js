@@ -258,7 +258,7 @@ function ModelReportScreen() {
         <table className="table table-striped table-bordered">
           <thead className="thead-dark font-weight-bold">
             <tr>
-              <th>Model</th>
+              <th>Indicator</th>
               {hist_headers
                 ? hist_headers.map((item, index) => (
                     <th key={index} className="font-weight-bold text-center">
@@ -353,9 +353,9 @@ function ModelReportScreen() {
                   ))
                 : null}
             </tr>
-            <tr>
+            <tr className="purple-row">
               <td>Upper Volatility</td>
-              {key_results?.flatness?.hist
+              {key_results?.flatness?.upper?.hist
                 ? key_results?.flatness?.upper?.hist.map((item, index) => (
                     <td key={index} className="text-center">
                       {parseFloat(item).toFixed(2)}
@@ -363,9 +363,9 @@ function ModelReportScreen() {
                   ))
                 : null}
             </tr>
-            <tr>
+            <tr className="purple-row">
               <td>Lower Volatility</td>
-              {key_results?.flatness?.hist
+              {key_results?.flatness?.lower?.hist
                 ? key_results?.flatness?.lower?.hist.map((item, index) => (
                     <td key={index} className="text-center">
                       {parseFloat(item).toFixed(2)}
@@ -428,7 +428,7 @@ function ModelReportScreen() {
               {key_results?.reversal_model?.reverse_prob
                 ? [...key_results?.reversal_model?.reverse_prob].map((item, index) => (
                     <td key={index} className="text-center">
-                      {parseFloat(item).toFixed(2)} %
+                      {parseFloat(item).toFixed(0)} %
                     </td> // Render each trade result in a cell
                   ))
                 : null}
