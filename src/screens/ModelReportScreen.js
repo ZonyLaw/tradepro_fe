@@ -356,7 +356,17 @@ function ModelReportScreen() {
             <tr>
               <td>Upper Volatility</td>
               {key_results?.flatness?.hist
-                ? key_results?.flatness?.hist.map((item, index) => (
+                ? key_results?.flatness?.upper?.hist.map((item, index) => (
+                    <td key={index} className="text-center">
+                      {parseFloat(item).toFixed(2)}
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
+            <tr>
+              <td>Lower Volatility</td>
+              {key_results?.flatness?.hist
+                ? key_results?.flatness?.lower?.hist.map((item, index) => (
                     <td key={index} className="text-center">
                       {parseFloat(item).toFixed(2)}
                     </td> // Render each trade result in a cell
