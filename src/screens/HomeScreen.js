@@ -20,13 +20,15 @@ function HomeScreen() {
         <p class="devInfo__about">
           At TradePRO, we provide powerful tools that offer in-depth analysis
           and potential predictions for the next 4 hours, helping you trade with
-          greater confidence. Our machine learning-powered tools analyze
+          greater confidence. Our machine learning-powered tools analyse
           historical market patterns and market reactions to news. With these
           insights, you’ll know when to secure profits, cut losses, and prepare
           for your next trade.
         </p>
 
+
         <p class="devInfo__about">How the tools will improve your trade:</p>
+
 
         <ul class="list_indent">
           <li class="devInfo__about">
@@ -44,6 +46,18 @@ function HomeScreen() {
             charts can be overwhelming due to conflicting signals.
           </li>
         </ul>
+
+
+        <h2>Trader's Mindset</h2>
+        
+        <p class="devInfo__about">
+          For valuable insights into developing a strong trader's 
+          mindset,  <a href="/trademindset">click here</a>. Understanding what drives both 
+          successful and unsuccessful trades is crucial. With the right mindset, 
+          you'll be better equipped to make informed decisions. Remember, even with 
+          the best tools at your disposal, the wrong mindset can still lead to losses.
+        </p>
+
 
         <h2>Tools Information</h2>
         <p>
