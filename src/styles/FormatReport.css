@@ -78,6 +78,13 @@
   color: rgb(2, 136, 2);
 }
 
+
+.text-purple-bold {
+  color: rgb(107, 2, 136);
+  font-weight: bold;
+}
+
+
 p {
   font-size: 19px;
 }

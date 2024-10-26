@@ -137,6 +137,8 @@ function ModelReportScreen() {
       <p style={{ fontSize: '20px', color: 'Red', fontWeight: 'bold' }}>
       Last update: {formatted_date} UTC
       </p>
+      
+      <p className='text-purple-bold'>{key_results?.current_market?.trend}</p>
 
       <p className={`comment ${histflashClass}`}>{comments.hist}</p>
 
