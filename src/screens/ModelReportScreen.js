@@ -139,6 +139,7 @@ function ModelReportScreen() {
       </p>
       
       <p className='text-purple-bold'>{key_results?.current_market?.trend}</p>
+      <p className='text-purple-bold'>{key_results?.current_market?.comment_unrealised_gain}</p>
 
       <p className={`comment ${histflashClass}`}>{comments.hist}</p>
 
