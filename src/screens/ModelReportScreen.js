@@ -376,6 +376,16 @@ function ModelReportScreen() {
                   ))
                 : null}
             </tr>
+            <tr className="blue-row">
+              <td>Buy Sentiment</td>
+              {key_results?.current_market?.buy_sentiment
+                ? key_results?.current_market?.buy_sentiment.map((item, index) => (
+                    <td key={index} className="text-center">
+                      {parseFloat(item).toFixed(0)} %
+                    </td> // Render each trade result in a cell
+                  ))
+                : null}
+            </tr>
 
           </tbody>
         </table>
