@@ -146,23 +146,23 @@ function ModelReportScreen() {
       <table className="table-bordered-custom" >
         <tbody  >
           <tr className="purple-row">
-            <td>Trade direction:</td>
+            <td>Trade direction</td>
             <td>
               <b>{key_results?.potential_trade?.hist}</b>
             </td>
           </tr>
           <tr className="red-row">
-            <td>Stop loss:</td>
+            <td>Stop loss</td>
             <td>
               <b>£{parseFloat(key_results?.trade_strategy?.stop_loss).toFixed(2)}</b>
             </td>
           </tr>
           <tr className="blue-row">
-            <td>Best Entry point:</td>
+            <td>Best Entry point</td>
             <td>
               <b>
                 £
-                {parseFloat(key_results?.trade_strategy?.open_price) >
+                {parseFloat(key_results?.trade_strategy?.open_price) <
                 parseFloat(key_results?.trade_strategy?.entry_point)
                   ? `${parseFloat(key_results?.trade_strategy?.entry).toFixed(2)} - ${parseFloat(
                       key_results?.trade_strategy?.open_price
@@ -174,45 +174,51 @@ function ModelReportScreen() {
             </td>
           </tr>
           <tr className="green-row">
-            <td>Target point:</td>
+            <td>Target point</td>
             <td>
               <b>£{parseFloat(key_results?.trade_strategy?.exit).toFixed(2)}</b>
             </td>
           </tr>
           <tr className="orange-row">
-            <td>Risk Reward ratio:</td>
+            <td>Risk Reward ratio</td>
             <td>
               <b>{parseFloat(key_results?.trade_strategy?.risk_reward).toFixed(2)}</b>
             </td>
           </tr>
           <tr>
-            <td>Average Open Price:</td>
+            <td>Average Open Price</td>
             <td>
               <b>£{parseFloat(key_results?.current_market?.average_open_price).toFixed(2)}</b>
             </td>
           </tr>
           <tr className="pink-row">
-            <td>1hr Upper Bollinger Band:</td>
+            <td>1hr Upper Bollinger Band</td>
             <td>
               <b>£{parseFloat(key_results?.bb_target1?.hist?.upper_bb1).toFixed(2)}</b>
             </td>
           </tr>
           <tr className="pink-row">
-            <td>1hr Lower Bollinger Band:</td>
+            <td>1hr Lower Bollinger Band</td>
             <td>
               <b>£{parseFloat(key_results?.bb_target1?.hist?.lower_bb1).toFixed(2)}</b>
             </td>
           </tr>
           <tr className="pink-row">
-            <td>4hr Upper Bollinger Band:</td>
+            <td>4hr Upper Bollinger Band</td>
             <td>
               <b>£{parseFloat(key_results?.bb_target4?.hist?.upper_bb4).toFixed(2)}</b>
             </td>
           </tr>
           <tr className="pink-row">
-            <td>4hr Lower Bollinger Band:</td>
+            <td>4hr Lower Bollinger Band</td>
             <td>
               <b>£{parseFloat(key_results?.bb_target4?.hist?.lower_bb4).toFixed(2)}</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Reversal count since midnight</td>
+            <td>
+              <b>{key_results?.reversal_model?.reverse_count}</b>
             </td>
           </tr>
         </tbody>
