@@ -162,8 +162,8 @@ function ModelReportScreen() {
             <td>
               <b>
                 £
-                {parseFloat(key_results?.trade_strategy?.open_price) <
-                parseFloat(key_results?.trade_strategy?.entry_point)
+                {
+                  (key_results?.potential_trade?.hist  === "Buy")
                   ? `${parseFloat(key_results?.trade_strategy?.entry).toFixed(2)} - ${parseFloat(
                       key_results?.trade_strategy?.open_price
                     ).toFixed(2)}`
