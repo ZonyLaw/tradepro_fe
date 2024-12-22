@@ -126,7 +126,7 @@ function ModelReportScreen() {
           {<Next4hrCandlestickTime />}
               <p><big>Current 1 hr Candle Stick size: {parseFloat(key_results?.current_market?.candle_size_1hr).toFixed(2)}, direction: <b> {key_results?.current_market?.trade_1hr} </b> </big></p>
               <p><big>Current 4 hr Candle Stick size: {parseFloat(key_results?.current_market?.candle_size_4hr).toFixed(2)}, direction: <b> {key_results?.current_market?.trade_4hr} </b> </big></p>
-              <p>Last open price 4 hrs ago: £{parseFloat(key_results?.current_market?.open_prices_4hr).toFixed(2)} </p>
+              <p>Last open price 4 hrs ago: £{parseFloat(key_results?.current_market?.open_price_4hr).toFixed(2)} </p>
               <p>{key_results?.current_market?.candlestick_comment}</p>
 
           </div>    
