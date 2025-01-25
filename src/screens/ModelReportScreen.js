@@ -64,7 +64,6 @@ function ModelReportScreen() {
   return (
     <div>
 
-   
           <div className="price-notifications">
             <div className="price-notification">
               <span className="label">Date:</span>
@@ -95,6 +94,12 @@ function ModelReportScreen() {
             )} */}
           </div>
 
+          {new Date(formatted_date).getDay() === 3 && ( 
+            <div className="comment flash-background-red">
+              <span style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>
+              WARNING: Today is Wednesday, so holding fees charged 3x!</span>
+            </div>
+          )}
 
 
       <h1>Model Report</h1>
