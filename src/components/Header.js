@@ -29,6 +29,12 @@ function Header() {
                 <Nav.Link as={Link} to="/report">
                   <i className="fas fa-magnifying-glass-chart"></i> Report
                 </Nav.Link>
+                <Nav.Link as={Link} to="/tradersnotes">
+                  <i className="fas fa-magnifying-glass-chart"></i> Notes
+                </Nav.Link>
+                <Nav.Link as={Link} to="/tradersmindset">
+                  <i className="fas fa-magnifying-glass-chart"></i> Mindsets
+                </Nav.Link>
 
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="username">

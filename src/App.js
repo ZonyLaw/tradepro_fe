@@ -10,6 +10,7 @@ import ModelReportScreen from './screens/ModelReportScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import TradersMindsetScreen from './screens/TradersMindsetScreen';
+import TradersNotesScreen from './screens/TradersNotesScreen';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
               <Route path="/prices/:id" element={<PriceScreen />} />
               <Route path="/report" element={<ModelReportScreen />} />
               <Route path="/login" element={<LoginScreen />} />
-              <Route path="/trademindset" element={<TradersMindsetScreen />} />
+              <Route path="/tradersmindset" element={<TradersMindsetScreen />} />
+              <Route path="/tradersnotes" element={<TradersNotesScreen/>} />
             </Routes>
           </Container>
         </main>
