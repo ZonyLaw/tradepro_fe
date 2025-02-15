@@ -102,6 +102,16 @@ function ModelReportScreen() {
           )}
 
 
+          {key_results?.bb_target4?.comment_bb4 !== "" && ( 
+            <div className="comment flash-background-red">
+              <span style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>
+                {key_results?.bb_target4?.comment_bb4}
+              </span>
+            </div>
+          )}
+
+
+
       <h1>Model Report</h1>
       <input
         type="text"
