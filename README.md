@@ -4,7 +4,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Production
 
-This front end webpage is launced using Netify. Any new updates in Github will automatically be deployed
+This front end webpage is launced using Netify. Any new updates in Github will automatically be deployed at:
+
+https://tradeprotool.netlify.app/report
+
+
+Firebase has also been used to deployed and found at:
+
+https://tradepro-e7784.web.app/
+
+
 
 # Coding Notes
 
@@ -85,3 +94,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### setting up firebase
+
+Here are some bash commands to setup firebase:
+
+npm install -g firebase-tools       -> Install Firebase CLI globally
+firebase login                      -> Authenticate your Google account
+firebase init hosting               -> Initialize Firebase Hosting in your project folder
+
+
+### nvm for managing node js version
+
+example of bash commands:
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh
+
+export NVM_DIR="$HOME/.nvm"
+source "$NVM_DIR/nvm.sh"
+
+nvm install 20
+nvm use 20
