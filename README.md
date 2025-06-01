@@ -28,6 +28,26 @@ https://tradepro-e7784.web.app/
 - this app uses axios module to access the api so this needs to be installed
 
 
+### setting up firebase
+
+Here are some bash commands to setup firebase if website is to be launch on gcp:
+
+ - npm install -g firebase-tools       -> Install Firebase CLI globally
+ - firebase login                      -> Authenticate your Google account
+ - firebase init hosting               -> Initialize Firebase Hosting in your project folder
+
+
+### nvm for managing node js version
+
+Here is some bash commands to manage node js versions:
+
+ - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh
+ - export NVM_DIR="$HOME/.nvm"
+ - source "$NVM_DIR/nvm.sh"
+ - nvm install 20
+ - nvm use 20
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -96,23 +116,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-### setting up firebase
-
-Here are some bash commands to setup firebase:
-
-npm install -g firebase-tools       -> Install Firebase CLI globally
-firebase login                      -> Authenticate your Google account
-firebase init hosting               -> Initialize Firebase Hosting in your project folder
-
-
-### nvm for managing node js version
-
-example of bash commands:
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh
-
-export NVM_DIR="$HOME/.nvm"
-source "$NVM_DIR/nvm.sh"
-
-nvm install 20
-nvm use 20
