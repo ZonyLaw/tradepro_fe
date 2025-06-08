@@ -13,6 +13,8 @@ function TradersNotes() {
            <ul>
               <li>Remember the <strong>climber example</strong> - how much preparation a person goes through before the activity!</li>
               <li>Remember the game about the color box vs. display of color words! Your mind reacts to words faster than the actual colors!</li>
+              <li>What are the things you are grateful?</li>
+              <li>You have all the wealth so these trade is not about wealth but finding yourself!</li>
               <li>At extreme points of the bb line, you can risk 50 for a trend trade!</li>
               <li>At extreme points of the bb line, you can risk 120pts for oscilating trade!</li>
               <li>1min and 5min chart can give you a false sense of the bigger picture, so know your facts (e.g. model predictions)</li>
@@ -27,10 +29,12 @@ function TradersNotes() {
               <li>Peak trend is reached when volatility is above 70 - 80. WAIT for a decrease or put a 100pts above your peak as entry! This is the hardest thing</li>
               <li>When the trend is at peak and you want to continue the trend, you need to pick at least 300 - 400 pts away from the peak!</li>
               <li>When in profit, you should find ways to load up</li>
-              <li>When in lost, you should exit quickly given your report suggestion!</li>
+              <li>You trade to participate in the market and it is not about winning or losing but finding yourself!</li>
+              <li>This should not happen if you have a strategy...When in lost, you should exit quickly given your report suggestion!</li>
               <li>Don't think buying at discount or selling at high values!</li>
               <li>Avoid thoughts of recovery, lost, and bias comments! Think that this is not money you need. You are investing into your future!</li>
               <li>You do not want to spend time staring at charts and hoping it goes your way!</li>
+              <li>There is no need to review your P&L till end of the month!</li>
          
          
           </ul>
