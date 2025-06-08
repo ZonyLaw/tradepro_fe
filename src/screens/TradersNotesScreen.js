@@ -1,4 +1,5 @@
 import { Container } from 'react-bootstrap';
+import '../styles/FormatReport.css';
 
 function TradersNotes() {
 
@@ -10,6 +11,8 @@ function TradersNotes() {
       <div>
         <h1>Do's</h1>
            <ul>
+              <li>Remember the <strong>climber example</strong> - how much preparation a person goes through before the activity!</li>
+              <li>Remember the game about the color box vs. display of color words! Your mind reacts to words faster than the actual colors!</li>
               <li>At extreme points of the bb line, you can risk 50 for a trend trade!</li>
               <li>At extreme points of the bb line, you can risk 120pts for oscilating trade!</li>
               <li>1min and 5min chart can give you a false sense of the bigger picture, so know your facts (e.g. model predictions)</li>
@@ -19,27 +22,31 @@ function TradersNotes() {
               <li>Review your trade log and aware where you can improve.</li>
               <li>Ask questions about the different scnearios</li>
               <li>When volatility is neutral it means it is perparing for a movement.</li>
-              <li>When valatility is pointing opposite to model predicitons, you have to be cautious of taking position suggested by model.</li>
-              <li>Your lost or win in the pass has nothing to do with the current trade. Know your strategy!</li>
+              <li>When volatility is pointing opposite to model predicitons, you have to be cautious of taking position suggested by model.</li>
+              <li>Your lost or win in the past has nothing to do with the current trade. Live in the present. Know your strategy!</li>
               <li>Peak trend is reached when volatility is above 70 - 80. WAIT for a decrease or put a 100pts above your peak as entry! This is the hardest thing</li>
               <li>When the trend is at peak and you want to continue the trend, you need to pick at least 300 - 400 pts away from the peak!</li>
               <li>When in profit, you should find ways to load up</li>
               <li>When in lost, you should exit quickly given your report suggestion!</li>
+              <li>Don't think buying at discount or selling at high values!</li>
               <li>Avoid thoughts of recovery, lost, and bias comments! Think that this is not money you need. You are investing into your future!</li>
               <li>You do not want to spend time staring at charts and hoping it goes your way!</li>
-              <li>Remember the <strong>climber example</strong> - how much preparation a person goes through before the activity!</li>
          
          
           </ul>
 
           <h1>Questions</h1>
            <ul>
-              <li>What happens on a monday when good news support movement on a Friday?</li>
-              <li>What happens when trend lead the news?</li>
+              <li>What happens on a monday when good news support movement on a Friday? </li>
+              <li>What happens when trend lead the news? (this probably happens 70% of the time!)
+                <ul>
+                  <li><strong class="green-text">29/May/2025 - trend up waiting employment news with mindset that tariff war creates negative impact along with bad NFP biasing thinking!</strong></li>
+                </ul>
+              </li>
               <li>When is it more volatile day after news?</li>
               <li>Does Wednesday the 3X charge have an bias influence on buy?</li>
               <li>Does negative indicator in Non-Farm emlpoyment suggest outcome of other employment?</li> 1 case observed for NO.
-              <li>Is it biase towards one currency? <strong>
+              <li>Is it biase towards one currency? <strong class ="green-text">
                   Yes, it is still towards USD maybe 60% because of the higher interest but JPY is performing better so more ocillation!
               </strong></li> 
          

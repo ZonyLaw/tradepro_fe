@@ -88,3 +88,12 @@
 p {
   font-size: 19px;
 }
+
+/*=======================
+ note formating
+========================*/
+
+.green-text {
+  color: green;
+  font-size: 1rem;
+}
