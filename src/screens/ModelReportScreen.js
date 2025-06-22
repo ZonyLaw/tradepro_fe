@@ -132,6 +132,8 @@ function ModelReportScreen() {
 
             <p>The model predicts new trades at the start of each hour. While currency movements can be volatile, you may find opportunities to enter the recommended entry point during this timeframe.</p>
             <p>This tool is designed to validate your observations and indicate optimal times to focus on a trade.</p>
+            <p>It seems when model recommended entry there is at least a 100 to 200 pips in the other direction.</p>
+            <p>Doji, hammer, and shotting stars are the killer of quick trades as market is unsure and you are unsure what will happen.</p>
             
 
           </div>

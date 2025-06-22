@@ -35,6 +35,10 @@ function TradersNotes() {
               <li>Avoid thoughts of recovery, lost, and bias comments! Think that this is not money you need. You are investing into your future!</li>
               <li>You do not want to spend time staring at charts and hoping it goes your way!</li>
               <li>There is no need to review your P&L till end of the month!</li>
+              <li>It's common for people to take profits early, fearing the market will take them back — but this can also reflect a broader truth in life: if you don't seize opportunities when they arise, you risk losing them. 
+              The key is finding the right balance between caution and confidence because you need to a clear mind of your process and not let the market
+              volatility scare you away from greater opportunities. 
+               </li>
          
          
           </ul>
